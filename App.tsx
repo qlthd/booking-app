@@ -1,10 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from "expo-font";
 
 const App = () => {
+  const [loaded] = useFonts({
+    WorkSansRegular: require("./assets/fonts/WorkSans-Regular.ttf"),
+    SubjectivityRegular: require("./assets/fonts/Subjectivity-Regular.otf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text className="text-2xl">Booking App</Text>
+    <View className="mt-8 mr-2 ml-2">
+      <Text className="font-workSans text-3xl">Booking app</Text>
       <StatusBar style="auto" />
     </View>
   );
