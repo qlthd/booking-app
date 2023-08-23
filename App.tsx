@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from "expo-font";
+import BottomTabs from "./components/BottomTabs";
+import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
   const [loaded] = useFonts({
@@ -13,20 +15,10 @@ const App = () => {
   }
 
   return (
-    <View className="mt-8 mr-2 ml-2">
-      <Text className="font-workSans text-3xl">Booking app</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <BottomTabs/>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default App;
