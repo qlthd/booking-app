@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Text, View } from 'react-native';
+import { Text, SafeAreaView } from 'react-native';
 
 export const Bookings = () => {
  
   return (
-    <View>
+    <SafeAreaView>
       <Text>Bookings</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
