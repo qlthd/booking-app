@@ -7,17 +7,16 @@ import { Rating } from 'react-native-ratings';
 import { CardImage } from '@rneui/base/dist/Card/Card.Image';
 import { AntDesign } from "@expo/vector-icons";
 
-
-export const BookingCard = () => {
+export const BookingCard = ({ accomodation } : any) => {
     const imageUri = "https://media.routard.com/image/47/9/khao-sok-parc-thailande.1533479.jpeg";
-
+    
     return (
         <Card containerStyle={tw`rounded-lg p-0`}>
             <CardImage source={{ uri : imageUri}} style={tw`rounded-t-lg`}/>
             <View style={tw`p-4`}>
                 <View style={tw`flex flex-row justify-between`}>
                     <View>
-                        <Text style={tw`font-bold text-xl mt-2`}>Booking name</Text>
+                        <Text style={tw`font-bold text-xl mt-2`}>{accomodation.attributes.Name}</Text>
                         <Text style={tw`text-gray-400`}>Location</Text>
                     </View>
                     <AntDesign name="hearto" size={24} color="black" style={tw`mt-2`} />
@@ -35,7 +34,6 @@ export const BookingCard = () => {
                     <Text style={tw`text-gray-400 text-lg my-auto ml-2`}>300 reviews</Text>
                 </View>
             </View>
-            
         </Card>
     );
 }

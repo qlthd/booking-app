@@ -4,6 +4,8 @@ import { SearchBar } from '@rneui/themed';
 import { useState } from 'react';
 import { SafeAreaView } from 'react-navigation';
 import { BookingCard } from './BookingCard';
+import { useQuery } from 'react-query';
+import { get } from '../helper/api';
 
 export const Home = () => {
   const [search, setSearch] = useState("");
@@ -11,6 +13,10 @@ export const Home = () => {
   const updateSearch = (search: any) => {
     setSearch(search);
   };
+
+  const { data: accomodations, isLoading, isError } = useQuery<any[]>
+  ('accomodation', () => get<any>('accomodations').then(response => response.data), {});
+  
   
   return (
     <SafeAreaView>
@@ -20,8 +26,7 @@ export const Home = () => {
         onChangeText={updateSearch}
         value={search}
       />
-      <BookingCard/>
-      <BookingCard/>
+      {accomodations?.map((accomodation) => <BookingCard accomodation={accomodation}/>)}
 
     </SafeAreaView>
   );
