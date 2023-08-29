@@ -21,6 +21,8 @@ export const Home = () => {
         value={search}
       />
       <BookingCard/>
+      <BookingCard/>
+
     </SafeAreaView>
   );
 }
