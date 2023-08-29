@@ -12,6 +12,7 @@
     "@react-navigation/bottom-tabs": "^6.5.8",
     "@rneui/base": "^4.0.0-rc.7",
     "@rneui/themed": "^4.0.0-rc.8",
+    "axios": "^1.5.0",
     "expo": "~49.0.8",
     "expo-status-bar": "~1.6.0",
     "nativewind": "^2.0.11",
@@ -24,7 +25,8 @@
     "react-navigation": "^4.4.4",
     "react-query": "^3.39.3",
     "tailwindcss": "^3.3.2",
-    "twrnc": "^3.6.4"
+    "twrnc": "^3.6.4",
+    "@expo/webpack-config": "^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
