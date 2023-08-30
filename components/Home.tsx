@@ -7,6 +7,7 @@ import { BookingCard } from './BookingCard';
 import { useQuery } from 'react-query';
 import { get } from '../helper/api';
 import {Accomodation} from "../Interfaces/Accomodation";
+import tw from "twrnc";
 
 export const Home = () => {
   const [search, setSearch] = useState("");
@@ -31,14 +32,15 @@ export const Home = () => {
     }));
   
   return (
-    <SafeAreaView>
-      <Text className="font-workSans text-3xl">Booking app</Text>
+    <SafeAreaView >
+      <Text style={tw`text-3xl font-bold text-center my-2`}>Booking app</Text>
       <SearchBar
-        placeholder="Search"
+        placeholder="Enter a destination"
         onChangeText={updateSearch}
+        lightTheme
         value={search}
       />
-      {accomodations?.map((accomodation) => <BookingCard accomodation={accomodation}/>)}
+      {accomodations?.map((accomodation, i) => <BookingCard accomodation={accomodation} key={i}/>)}
 
     </SafeAreaView>
   );

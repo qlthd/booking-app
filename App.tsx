@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from "expo-font";
 import BottomTabs from "./components/BottomTabs";
 import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import * as React from "react";
 
 const App = () => {
   const queryClient = new QueryClient();
