@@ -15,7 +15,7 @@ export const Home = () => {
   };
 
   const { data: accomodations, isLoading, isError } = useQuery<any[]>
-  ('accomodation', () => get<any>('accomodations').then(response => response.data), {});
+  ('accomodation', () => get<any>('accomodations?populate=*').then(response => response.data), {});
   
   
   return (

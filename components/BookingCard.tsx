@@ -8,7 +8,7 @@ import { CardImage } from '@rneui/base/dist/Card/Card.Image';
 import { AntDesign } from "@expo/vector-icons";
 
 export const BookingCard = ({ accomodation } : any) => {
-    const imageUri = "https://media.routard.com/image/47/9/khao-sok-parc-thailande.1533479.jpeg";
+    const imageUri = `http://localhost:1337${accomodation.attributes.Pictures.data[0].attributes.url}`;
     
     return (
         <Card containerStyle={tw`rounded-lg p-0`}>
@@ -17,7 +17,7 @@ export const BookingCard = ({ accomodation } : any) => {
                 <View style={tw`flex flex-row justify-between`}>
                     <View>
                         <Text style={tw`font-bold text-xl mt-2`}>{accomodation.attributes.Name}</Text>
-                        <Text style={tw`text-gray-400`}>Location</Text>
+                        <Text style={tw`text-gray-400`}>{accomodation.attributes.Location}</Text>
                     </View>
                     <AntDesign name="hearto" size={24} color="black" style={tw`mt-2`} />
                 </View>
@@ -29,9 +29,9 @@ export const BookingCard = ({ accomodation } : any) => {
                             startingValue={4.5}
                             readonly
                         />
-                        <Text style={tw`font-bold text-lg my-auto mx-2`}>4.5</Text>
+                        <Text style={tw`font-bold text-lg my-auto mx-2`}>{accomodation.attributes.ReviewScore}</Text>
                     </View>
-                    <Text style={tw`text-gray-400 text-lg my-auto ml-2`}>300 reviews</Text>
+                    <Text style={tw`text-gray-400 text-lg my-auto ml-2`}>{accomodation.attributes.ReviewsCount} reviews</Text>
                 </View>
             </View>
         </Card>
