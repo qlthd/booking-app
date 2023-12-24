@@ -6,10 +6,10 @@ import tw from 'twrnc';
 import { Rating } from 'react-native-ratings';
 import { CardImage } from '@rneui/base/dist/Card/Card.Image';
 import { AntDesign } from "@expo/vector-icons";
-import {Accomodation} from "../Interfaces/Accomodation";
+import { AccommodationListResponseDataItem } from '../strapi-client';
 
-export const BookingCard = ({ accomodation } : { accomodation: Accomodation }) => {
-    const imageUri = `http://localhost:1337${accomodation.MainPictureUrl}`;
+export const BookingCard = ({ accomodation } : { accomodation: AccommodationListResponseDataItem }) => {
+    const imageUri = `http://localhost:1337${accomodation.attributes?.pictures?.data?.[0]?.attributes?.url}`;
     
     return (
         <Card containerStyle={tw`rounded-lg p-0`}>
@@ -17,8 +17,8 @@ export const BookingCard = ({ accomodation } : { accomodation: Accomodation }) =
             <View style={tw`p-4`}>
                 <View style={tw`flex flex-row justify-between`}>
                     <View>
-                        <Text style={tw`font-bold text-xl mt-2`}>{accomodation.Name}</Text>
-                        <Text style={tw`text-gray-400`}>{accomodation.Location}</Text>
+                        <Text style={tw`font-bold text-xl mt-2`}>{accomodation.attributes?.name}</Text>
+                        <Text style={tw`text-gray-400`}>{accomodation.attributes?.location}</Text>
                     </View>
                     <AntDesign name="hearto" size={24} color="black" style={tw`mt-2`} />
                 </View>
@@ -30,9 +30,9 @@ export const BookingCard = ({ accomodation } : { accomodation: Accomodation }) =
                             startingValue={4.5}
                             readonly
                         />
-                        <Text style={tw`font-bold text-lg my-auto mx-2`}>{accomodation.ReviewScore}</Text>
+                        <Text style={tw`font-bold text-lg my-auto mx-2`}>{accomodation.attributes?.reviewScore}</Text>
                     </View>
-                    <Text style={tw`text-gray-400 text-lg my-auto ml-2`}>{accomodation.ReviewsCount} reviews</Text>
+                    <Text style={tw`text-gray-400 text-lg my-auto ml-2`}>{accomodation.attributes?.reviewsCount} reviews</Text>
                 </View>
             </View>
         </Card>
