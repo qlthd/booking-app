@@ -25,8 +25,12 @@ const api = new AccommodationApi(configuration);
 
 
 useEffect(() => {
-  api.getAccommodations({ populate: "*", filters: search ? { Name : { $startsWithi : search}} : {}}).then((response) => {
-    setAccommodations(response.data);
+  api.getAccommodations({ populate: "*", filters: search.length > 2 ? 
+    { 
+      Name : { $startsWithi : search}  
+    } : {}
+    }).then((response) => {
+      setAccommodations(response.data);
   });
 }, [search]);
   
@@ -39,6 +43,8 @@ useEffect(() => {
         lightTheme
         value={search}
       />
+      {search.length > 2 && accommodations?.length == 0 && <Text style={tw`text-xl text-red-500 mt-4 mx-auto`}>No results found for "{search}"</Text>}
+
       {accommodations?.map((value, index) => <BookingCard accomodation={value} key={index}/>)}
 
     </SafeAreaView>
