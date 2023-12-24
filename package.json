@@ -32,7 +32,7 @@
     "@types/jest": "^29.5.3",
     "@types/react": "^18.2.20",
     "@types/react-test-renderer": "^18.0.0",
-    "metro-config": "^0.78.1",
+    "metro-config": "^0.80.0",
     "typescript": "^5.1.6"
   },
   "private": true
